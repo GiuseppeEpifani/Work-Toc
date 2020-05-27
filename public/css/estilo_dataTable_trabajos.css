@@ -1,0 +1,144 @@
+ .glyphicon,
+ .btn-app>.ion {
+     font-size: 30px;
+     display: block;
+ }
+
+ .btn {
+     margin-bottom: 2px !important;
+ }
+
+ .btn-app:hover {
+     border-color: #aaa;
+     transform: scale(1.1);
+ }
+
+ #tabla_trabajos thead {
+     color: #85bb65;
+ }
+
+ .excel {
+     background: #188220 !important;
+     color: #ffffff !important;
+     font-size: 18px !important;
+     width: 80px !important;
+     height: 80px !important;
+
+ }
+
+ .pdf {
+     background: #EE2919 !important;
+     color: #ffffff !important;
+     font-size: 18px !important;
+     width: 80px !important;
+     height: 80px !important;
+
+ }
+
+ .imprimir {
+     background: rgb(7, 148, 230) !important;
+     color: #ffffff !important;
+     width: 87px !important;
+     height: 80px !important;
+     font-size: 18px !important;
+
+ }
+
+ #tabla_trabajos_length {
+     color: #85bb65 !important;
+     position: absolute !important;
+     right: 0 !important;
+     margin-bottom: 30px !important;
+
+ }
+
+ #tabla_trabajos_length select {
+     color: #ffffff !important;
+     background: #85bb65 !important;
+     font-family: 'Courier New', Courier, monospace !important;
+     -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+     -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+     box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+ }
+
+ #tabla_trabajos_filter input {
+     -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+     -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+     box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+     border-radius: 10px;
+     margin-bottom: 10px !important;
+     margin-top: 10px !important;
+ }
+
+
+
+ #tabla_trabajos_paginate span a {
+     font-family: 'Courier New', Courier, monospace;
+     background: #85bb65 !important;
+     -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+     -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+     box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+     color: #ffffff !important;
+     font-weight: bold !important;
+ }
+
+ @media only screen and (max-width: 1000px) {
+     .table {
+
+         font-size: 11px !important;
+     }
+
+     .btn {
+         font-size: 11px !important;
+         margin-bottom: 3px !important;
+     }
+
+     .excel {
+         font-size: 18px !important;
+     }
+
+     .pdf {
+
+         font-size: 18px !important;
+
+
+     }
+
+     .imprimir {
+         font-size: 18px !important;
+
+     }
+
+
+ }
+
+
+ @media only screen and (max-width: 700px) {
+     .table {
+
+         font-size: 9px !important;
+     }
+
+     .btn {
+         font-size: 9px !important;
+         margin-bottom: 2px !important;
+     }
+
+
+     .excel {
+         font-size: 18px !important;
+     }
+
+     .pdf {
+
+         font-size: 18px !important;
+
+
+     }
+
+     .imprimir {
+         font-size: 18px !important;
+
+     }
+
+ }

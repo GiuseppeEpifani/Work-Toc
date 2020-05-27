@@ -1,0 +1,32 @@
+.navbar {
+    background: #85bb65 !important;
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+
+.navbar li a {
+    color: #ffffff !important;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+
+
+}
+
+.btn:hover {
+    border-color: #aaa;
+    transform: scale(1.1);
+}
+
+.sombra {
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+
+
+.dropdown-item:hover {
+    background: #85bb65 !important;
+    color: #ffffff !important;
+    transform: scale(1.1) !important;
+}
