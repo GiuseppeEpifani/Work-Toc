@@ -87,12 +87,13 @@
 
 
 
- @media only screen and (max-width: 500px) {
+ @media only screen and (max-width: 800px) {
      #tabla_trabajos_length {
          color: #85bb65 !important;
          position: relative !important;
          font-size: 18px !important;
          margin-bottom: 5px !important;
+         margin-right: 5px !important;
      }
 
      .dt-buttons {
