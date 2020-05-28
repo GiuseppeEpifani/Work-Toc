@@ -59,6 +59,8 @@
      -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
      -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
      box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+     border-radius: 10px !important;
+
  }
 
  #tabla_trabajos_filter input {
@@ -82,93 +84,10 @@
      font-weight: bold !important;
  }
 
- @media only screen and (max-width: 1000px) {
-     .table {
 
-         font-size: 11px !important;
-     }
-
-     .btn {
-         font-size: 11px !important;
-         margin-bottom: 3px !important;
-     }
-
-     .excel {
-         font-size: 18px !important;
-     }
-
-     .pdf {
-
-         font-size: 18px !important;
-
-
-     }
-
-     .imprimir {
-         font-size: 18px !important;
-
-     }
-
-
- }
-
-
- @media only screen and (max-width: 700px) {
-     .table {
-
-         font-size: 9px !important;
-     }
-
-     .btn {
-         font-size: 9px !important;
-         margin-bottom: 2px !important;
-     }
-
-
-     .excel {
-         font-size: 18px !important;
-     }
-
-     .pdf {
-
-         font-size: 18px !important;
-
-
-     }
-
-     .imprimir {
-         font-size: 18px !important;
-
-     }
-
- }
 
 
  @media only screen and (max-width: 500px) {
-     .table {
-         font-size: 6px !important;
-     }
-
-     .btn {
-         font-size: 6px !important;
-         margin-bottom: 0.1px !important;
-     }
-
-
-     .excel {
-         font-size: 18px !important;
-     }
-
-     .pdf {
-
-         font-size: 18px !important;
-     }
-
-     .imprimir {
-         font-size: 18px !important;
-
-     }
-
      #tabla_trabajos_length {
          color: #85bb65 !important;
          position: relative !important;
@@ -176,9 +95,8 @@
          margin-bottom: 5px !important;
      }
 
-
-
-
-
-
+     .dt-buttons {
+         display: flex;
+         justify-content: center;
+     }
  }

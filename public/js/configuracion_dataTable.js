@@ -1,5 +1,7 @@
 $(document).ready(function () {
+
     $('#tabla_trabajos').DataTable({
+        responsive: true,
         dom: 'lBfrtip',
         buttons: [
             {
@@ -64,6 +66,8 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
+
+
     $('#tabla_usuarios').DataTable({
         "language": {
             "info": "_TOTAL_ Registro(s) encontrado(s)",
@@ -88,3 +92,5 @@ $(document).ready(function () {
         }
     });
 });
+
+
