@@ -71,6 +71,9 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('#tabla_usuarios').DataTable({
         responsive: true,
+        columnDefs: [
+            { responsivePriority: 2, targets: -1 }
+        ],
         "language": {
             "info": "_TOTAL_ Registro(s) encontrado(s)",
             "search": '<i class="fas fa-search" style=" font-size:22px;"></i>',
@@ -98,7 +101,12 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $('#tabla_usuarios_activar').DataTable({
+
         responsive: true,
+        columnDefs: [
+            { responsivePriority: 1, targets: -1 },
+            { responsivePriority: 3, targets: -1 }
+        ],
         "language": {
             "info": "_TOTAL_ Registro(s) encontrado(s)",
             "search": '<i class="fas fa-search" style=" font-size:22px;"></i>',
@@ -120,5 +128,7 @@ $(document).ready(function () {
             "infoFiltered": ""
 
         }
+
+
     });
 });

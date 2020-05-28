@@ -37,10 +37,9 @@
               <table class="table display responsive nowrap" cellspacing="0" width="100%" id="tabla_usuarios_activar">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Antecedentes</th>
-                    <th scope="col">Acción</th>
+                    <th width="40%">Nombre</th>
+                    <th width="25%">Antecedentes</th>
+                    <th width="35%">Acción</th>
                   </tr>
                 </thead>
                 @isset($usuarios)
@@ -49,7 +48,6 @@
                   @foreach ($usuarios as $item)
                   <!-- data-id sirve para obtener elementos especificos de una tabla -->
                   <tr data-id="{{$item}}">
-                    <th scope="row">{{ $item->id }}</th>
                     <td>{{ $item->nombre}} {{$item->ape_paterno}} {{$item->ape_materno}}</td>
                     <td><a target="-blank" href="{{ url('/storage/antecedentes/'.$item->antecedentes)}}">Ver
                         Antecedentes</a></td>

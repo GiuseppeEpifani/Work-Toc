@@ -39,7 +39,6 @@
                                 id="tabla_usuarios">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Correo</th>
                                         <th scope="col">Acción</th>
@@ -50,7 +49,6 @@
                                     @foreach ($usuarios as $item)
                                     <!-- data-id sirve para obtener elementos especificos de una tabla -->
                                     <tr data-id="{{$item}}">
-                                        <th scope="row">{{ $item->id }}</th>
                                         <td>{{ $item->nombre}} {{$item->ape_paterno}} {{$item->ape_materno}}</td>
                                         <td> {{$item->correo}}</td>
                                         <td>
