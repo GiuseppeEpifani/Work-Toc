@@ -30,3 +30,27 @@
     color: #ffffff !important;
     transform: scale(1.1) !important;
 }
+
+
+.a_reponsivo {
+    width: 100px !important;
+    color: #ffffff !important;
+}
+
+
+
+
+@media only screen and (max-width: 800px) {
+    .card_header {
+        font-size: 18px !important;
+
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .card_header {
+
+        font-size: 15px !important;
+
+    }
+}

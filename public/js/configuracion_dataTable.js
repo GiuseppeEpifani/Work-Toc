@@ -65,10 +65,12 @@ $(document).ready(function () {
 
 
 
+
+
+
 $(document).ready(function () {
-
-
     $('#tabla_usuarios').DataTable({
+        responsive: true,
         "language": {
             "info": "_TOTAL_ Registro(s) encontrado(s)",
             "search": '<i class="fas fa-search" style=" font-size:22px;"></i>',
@@ -94,3 +96,29 @@ $(document).ready(function () {
 });
 
 
+$(document).ready(function () {
+    $('#tabla_usuarios_activar').DataTable({
+        responsive: true,
+        "language": {
+            "info": "_TOTAL_ Registro(s) encontrado(s)",
+            "search": '<i class="fas fa-search" style=" font-size:22px;"></i>',
+            "paginate": {
+                "next": "Siguiente",
+                "previous": "Anterior",
+            },
+            "lengthMenu": '<select>' +
+                '<option value="10">Mostrar 10 Registros</option>' +
+                '<option value="30">Mostrar 30 Registros</option>' +
+                '<option value="50">Mostrar 50 Registros</option>' +
+                '<option value="-1">Mostrar todos los Registros</option>' +
+                '</select>',
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "emptyTable": "No hay Datos",
+            "zeroRecords": '<center>No hay coincidencias</center>',
+            "infoEmpty": "",
+            "infoFiltered": ""
+
+        }
+    });
+});

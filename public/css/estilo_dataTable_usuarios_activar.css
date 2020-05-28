@@ -14,16 +14,16 @@
      transform: scale(1.1);
  }
 
- #tabla_usuarios thead {
+ #tabla_usuarios_activar thead {
      color: #85bb65;
  }
 
 
- #tabla_usuarios_length {
+ #tabla_usuarios_activar_length {
      color: #85bb65 !important;
  }
 
- #tabla_usuarios_length select {
+ #tabla_usuarios_activar_length select {
      color: #ffffff !important;
      background: #85bb65 !important;
      font-family: 'Courier New', Courier, monospace !important;
@@ -33,7 +33,7 @@
      border-radius: 10px !important;
  }
 
- #tabla_usuarios_filter input {
+ #tabla_usuarios_activar_filter input {
      -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
      -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
      box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
@@ -43,7 +43,7 @@
 
 
 
- #tabla_usuarios_paginate span a {
+ #tabla_usuarios_activar_paginate span a {
 
      font-family: 'Courier New', Courier, monospace;
      background: #85bb65 !important;
@@ -62,9 +62,11 @@
          font-size: 18px !important;
      }
 
+     #parrafo_nombre_usuario {
+         font-size: 18px !important;
+     }
 
-
-     #tabla_usuarios_length select {
+     #tabla_usuarios_activar_length select {
          width: 260px !important;
          font-size: 18px !important;
 
@@ -78,9 +80,11 @@
          font-size: 15px !important;
      }
 
+     #parrafo_nombre_usuario {
+         font-size: 15px !important;
+     }
 
-
-     #tabla_usuarios_length select {
+     #tabla_usuarios_activar_length select {
          width: 250px !important;
          font-size: 15px !important;
 

@@ -65,20 +65,20 @@
               <span class="caret"></span>
             </a>
 
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item a_reponsivo" style="color:#000 !important;" href="{{url('/usuario')}}">Activar
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"
+              style="background: #85bb70 !important;">
+              <a class="dropdown-item a_reponsivo" href="{{url('/usuario')}}">Activar
                 Usuarios
                 <span class="sr-only"></span></a>
-              <a class="dropdown-item a_reponsivo" style="color:#000 !important;"
-                href="{{route('todos_los_usuarios')}}">Usuarios <span class="sr-only"></span></a>
-              <a class="dropdown-item a_reponsivo" style="color:#000 !important;"
-                href="{{route('usuarios_trabajador.listado_trabajos')}}">Registro de
+              <a class="dropdown-item a_reponsivo" href="{{route('todos_los_usuarios')}}">Usuarios <span
+                  class="sr-only"></span></a>
+              <a class="dropdown-item a_reponsivo" href="{{route('usuarios_trabajador.listado_trabajos')}}">Registro de
                 Trabajos <span class="sr-only"></span></a>
               @if (Auth::user()->email=="giuseppe@gmail.com")
-              <a class="dropdown-item a_reponsivo" style="color:#000 !important;"
-                href="{{ route('register') }}">{{ __('Nuevo Admin') }}</a>
+              <a class="dropdown-item a_reponsivo" href="{{ route('register') }}">{{ __('Nuevo Admin') }}</a>
               @endif
-              <a class="dropdown-item" style="color: black !important;" href="{{ route('logout') }}" onclick="event.preventDefault();
+              <a class="dropdown-item" style="color: #ffffff !important; width: 100px !important;"
+                href="{{ route('logout') }}" onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                 {{ __('Cerrar Sesión') }} <i class="fas fa-sign-out-alt"></i>
               </a>
@@ -107,10 +107,14 @@
    if ($(window).width() <= 900) {
     $('.menu_hide').hide();
     $('.a_reponsivo').show(); 
+    $('.imprimir').show();
   
      } else if ($(window).width() > 900) {
       $('.a_reponsivo').hide();
       $('.menu_hide').show();
+      $('.imprimir').show();
+    }else if ($(window).width() > 500) {
+      $('.imprimir').hide();
     }
 
   });
@@ -119,11 +123,16 @@
       if ($(window).width() <= 900) {
         $('.menu_hide').hide();
       $('.a_reponsivo').show(); 
+      $('.imprimir').show();
+  
     
        } else if ($(window).width() > 900) {
         $('.a_reponsivo').hide();
         $('.menu_hide').show();
-      }
+        $('.imprimir').show();
+      }else if ($(window).width() > 500) {
+        $('.imprimir').hide();
+      }  
 
     });
 </script>

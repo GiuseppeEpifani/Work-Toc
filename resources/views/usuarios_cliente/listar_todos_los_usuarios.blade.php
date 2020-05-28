@@ -32,70 +32,76 @@
                             Trabajadores y Bloqueo de Cuentas</span></div>
 
                 </div>
-                <div class="card-body">
-                    <table class="table" id="tabla_usuarios">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Correo</th>
-                                <th scope="col">Acción</th>
-                            </tr>
-                        </thead>
-                        @isset($usuarios)
-                        <tbody>
-                            @foreach ($usuarios as $item)
-                            <!-- data-id sirve para obtener elementos especificos de una tabla -->
-                            <tr data-id="{{$item}}">
-                                <th scope="row">{{ $item->id }}</th>
-                                <td>{{ $item->nombre}} {{$item->ape_paterno}} {{$item->ape_materno}}</td>
-                                <td> {{$item->correo}}</td>
-                                <td>
-                                    @if($item->usuario_trabajador['id'] != null &&
-                                    $item->usuario_trabajador['activada']=='si' && $item->bloqueado == 'no')
-                                    <a title="Desactiva la Cuenta Trabajador"
-                                        class="btn btn-primary btn-sm btn_desactivar"
-                                        style="background: #28C2EB !important; color:#ffffff !important;"><i
-                                            class="fas fa-check-circle"></i>
-                                        Desactivar</a>
-                                    @endif
-                                    @if($item->usuario_trabajador['id'] != null &&
-                                    $item->usuario_trabajador['activada']=='no' && $item->bloqueado == 'no')
-                                    <a title=" Vulve Activar la Cuenta Trabajador"
-                                        class="btn btn-primary btn-sm btn_activar"
-                                        style="background: #28C2EB !important; color:#ffffff !important;"><i
-                                            class="fas fa-check-circle"></i>
-                                        Activar</a>
-                                    @endif
-                                    @if($item->bloqueado == 'no')
-                                    <a title="Bloquea la Cuenta Completa" class="btn btn-danger btn-sm btn_bloquear"
-                                        class="btn btn-danger btn-sm" style="color: #ffffff"><i
-                                            class="fas fa-times-circle"></i> Bloquear</a>
-                                    @else
-                                    <a title="Bloquea la Cuenta Completa" class="btn btn-danger btn-sm btn_desbloquear"
-                                        class="btn btn-danger btn-sm" style="color: #ffffff"><i
-                                            class="fas fa-times-circle"></i> Desbloquear</a>
-                                    @endif
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                        @endisset
-                    </table>
+                <div class="container" style="margin-top: 10px !important; margin-bottom: 10px !important;">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table class="table display responsive nowrap" cellspacing="0" width="100%"
+                                id="tabla_usuarios">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Correo</th>
+                                        <th scope="col">Acción</th>
+                                    </tr>
+                                </thead>
+                                @isset($usuarios)
+                                <tbody>
+                                    @foreach ($usuarios as $item)
+                                    <!-- data-id sirve para obtener elementos especificos de una tabla -->
+                                    <tr data-id="{{$item}}">
+                                        <th scope="row">{{ $item->id }}</th>
+                                        <td>{{ $item->nombre}} {{$item->ape_paterno}} {{$item->ape_materno}}</td>
+                                        <td> {{$item->correo}}</td>
+                                        <td>
+                                            @if($item->usuario_trabajador['id'] != null &&
+                                            $item->usuario_trabajador['activada']=='si' && $item->bloqueado == 'no')
+                                            <a title="Desactiva la Cuenta Trabajador"
+                                                class="btn btn-primary btn-sm btn_desactivar"
+                                                style="background: #28C2EB !important; color:#ffffff !important;"><i
+                                                    class="fas fa-check-circle"></i>
+                                                Desactivar</a>
+                                            @endif
+                                            @if($item->usuario_trabajador['id'] != null &&
+                                            $item->usuario_trabajador['activada']=='no' && $item->bloqueado == 'no')
+                                            <a title=" Vulve Activar la Cuenta Trabajador"
+                                                class="btn btn-primary btn-sm btn_activar"
+                                                style="background: #28C2EB !important; color:#ffffff !important;"><i
+                                                    class="fas fa-check-circle"></i>
+                                                Activar</a>
+                                            @endif
+                                            @if($item->bloqueado == 'no')
+                                            <a title="Bloquea la Cuenta Completa"
+                                                class="btn btn-danger btn-sm btn_bloquear" class="btn btn-danger btn-sm"
+                                                style="color: #ffffff"><i class="fas fa-times-circle"></i> Bloquear</a>
+                                            @else
+                                            <a title="Bloquea la Cuenta Completa"
+                                                class="btn btn-danger btn-sm btn_desbloquear"
+                                                class="btn btn-danger btn-sm" style="color: #ffffff"><i
+                                                    class="fas fa-times-circle"></i> Desbloquear</a>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                                @endisset
+                            </table>
 
+                        </div>
+
+                    </div>
                 </div>
-
-
             </div>
-
         </div>
+
     </div>
+</div>
 </div>
 
 <!-- Modal -->
 <div class="modal fade" id="modal_confirmar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle"><label id="parrafo_nombre_usuario">
@@ -124,6 +130,8 @@
 @section('script_dataTable')
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.4/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.4/js/responsive.bootstrap.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
