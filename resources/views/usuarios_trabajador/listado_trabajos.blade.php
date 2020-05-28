@@ -27,11 +27,10 @@
 
 
 
-                <div class="card-body">
+                <div class="container" style="margin-top: 10px !important; margin-bottom: 10px !important;">
                     <table class="table" id="tabla_trabajos">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
                                 <th scope="col">Trabajador Involucrado</th>
                                 <th scope="col">Cliente Involucrado</th>
                                 <th scope="col">Monto</th>
@@ -44,7 +43,6 @@
                             @foreach ($trabajos as $item)
                             <?php $cliente = App\usuario::find($item->id_cliente);  ?>
                             <tr>
-                                <th scope="row">{{ $item->id }}</th>
                                 <td>{{ $item->nombre }} {{ $item->ape_paterno }} {{ $item->ape_materno }}</td>
                                 <td> {{  $cliente['nombre']}} {{ $cliente['ape_paterno'] }}
                                     {{ $cliente['ape_materno'] }}

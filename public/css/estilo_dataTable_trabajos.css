@@ -142,3 +142,43 @@
      }
 
  }
+
+
+ @media only screen and (max-width: 500px) {
+     .table {
+         font-size: 6px !important;
+     }
+
+     .btn {
+         font-size: 6px !important;
+         margin-bottom: 0.1px !important;
+     }
+
+
+     .excel {
+         font-size: 18px !important;
+     }
+
+     .pdf {
+
+         font-size: 18px !important;
+     }
+
+     .imprimir {
+         font-size: 18px !important;
+
+     }
+
+     #tabla_trabajos_length {
+         color: #85bb65 !important;
+         position: relative !important;
+         font-size: 18px !important;
+         margin-bottom: 5px !important;
+     }
+
+
+
+
+
+
+ }

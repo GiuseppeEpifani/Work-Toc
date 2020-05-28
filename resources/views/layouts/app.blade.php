@@ -111,24 +111,24 @@
 <script>
   $(document).ready(function($){
    if ($(window).width() <= 900) {
-    $('.a_reponsivo').show(); 
     $('.menu_hide').hide();
+    $('.a_reponsivo').show(); 
   
      } else if ($(window).width() > 900) {
+      $('.a_reponsivo').hide();
       $('.menu_hide').show();
-       $('.a_reponsivo').hide();
     }
 
   });
 
   $(window).resize(function(){
       if ($(window).width() <= 900) {
+        $('.menu_hide').hide();
       $('.a_reponsivo').show(); 
-      $('.menu_hide').hide();
     
        } else if ($(window).width() > 900) {
+        $('.a_reponsivo').hide();
         $('.menu_hide').show();
-         $('.a_reponsivo').hide();
       }
 
     });
