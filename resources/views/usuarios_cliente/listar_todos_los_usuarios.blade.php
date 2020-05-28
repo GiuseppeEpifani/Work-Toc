@@ -51,14 +51,15 @@
                                     <tr data-id="{{$item}}">
                                         <td>{{ $item->nombre}} {{$item->ape_paterno}} {{$item->ape_materno}}</td>
                                         <td> {{$item->correo}}</td>
-                                        <td>
+                                        <td class="achicar_botones">
                                             @if($item->usuario_trabajador['id'] != null &&
                                             $item->usuario_trabajador['activada']=='si' && $item->bloqueado == 'no')
                                             <a title="Desactiva la Cuenta Trabajador"
                                                 class="btn btn-primary btn-sm btn_desactivar"
                                                 style="background: #28C2EB !important; color:#ffffff !important;"><i
-                                                    class="fas fa-check-circle"></i>
-                                                Desactivar</a>
+                                                    class="fas fa-ban"></i>
+                                                <label class="label_icon">Desactivar</label>
+                                            </a>
                                             @endif
                                             @if($item->usuario_trabajador['id'] != null &&
                                             $item->usuario_trabajador['activada']=='no' && $item->bloqueado == 'no')
@@ -66,17 +67,19 @@
                                                 class="btn btn-primary btn-sm btn_activar"
                                                 style="background: #28C2EB !important; color:#ffffff !important;"><i
                                                     class="fas fa-check-circle"></i>
-                                                Activar</a>
+                                                <label class="label_icon"> Activar</label></a>
                                             @endif
                                             @if($item->bloqueado == 'no')
                                             <a title="Bloquea la Cuenta Completa"
                                                 class="btn btn-danger btn-sm btn_bloquear" class="btn btn-danger btn-sm"
-                                                style="color: #ffffff"><i class="fas fa-times-circle"></i> Bloquear</a>
-                                            @else
-                                            <a title="Bloquea la Cuenta Completa"
-                                                class="btn btn-danger btn-sm btn_desbloquear"
-                                                class="btn btn-danger btn-sm" style="color: #ffffff"><i
-                                                    class="fas fa-times-circle"></i> Desbloquear</a>
+                                                style="color: #ffffff"><i class="fas fa-shield-alt"></i>
+                                                <label class="label_icon">
+                                                    Bloquear
+                                                </label </a> @else <a title="Bloquea la Cuenta Completa"
+                                                    class="btn btn-danger btn-sm btn_desbloquear"
+                                                    class="btn btn-danger btn-sm" style="color: #ffffff"><i
+                                                    class="fas fa-unlock-alt"></i>
+                                                <label class="label_icon">Desbloquear</label> </a>
                                             @endif
                                         </td>
                                     </tr>

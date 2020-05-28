@@ -104,7 +104,6 @@ $(document).ready(function () {
 
         responsive: true,
         columnDefs: [
-            { responsivePriority: 1, targets: -1 },
             { responsivePriority: 3, targets: -1 }
         ],
         "language": {

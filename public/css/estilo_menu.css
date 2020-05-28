@@ -40,17 +40,25 @@
 
 
 
+
+
 @media only screen and (max-width: 800px) {
     .card_header {
         font-size: 18px !important;
 
     }
+
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
     .card_header {
 
         font-size: 15px !important;
-
     }
+
+    .table {
+        font-size: 12.5px !important;
+    }
+
+
 }

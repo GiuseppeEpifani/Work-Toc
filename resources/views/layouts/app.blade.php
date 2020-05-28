@@ -106,14 +106,18 @@
   $(document).ready(function($){
    if ($(window).width() <= 900) {
     $('.menu_hide').hide();
+    $('.label_icon').hide();
     $('.a_reponsivo').show(); 
-    $('.imprimir').show();
-  
+
+   
      } else if ($(window).width() > 900) {
       $('.a_reponsivo').hide();
       $('.menu_hide').show();
+      $('.label_icon').show();
       $('.imprimir').show();
-    }else if ($(window).width() > 500) {
+
+    }else if ($(window).width() <= 500) {
+      $('.label_icon').hide();
       $('.imprimir').hide();
     }
 
@@ -122,15 +126,21 @@
   $(window).resize(function(){
       if ($(window).width() <= 900) {
         $('.menu_hide').hide();
-      $('.a_reponsivo').show(); 
-      $('.imprimir').show();
+        $('.label_icon').hide();
+        $('.a_reponsivo').show(); 
+
   
     
        } else if ($(window).width() > 900) {
         $('.a_reponsivo').hide();
-        $('.menu_hide').show();
-        $('.imprimir').show();
-      }else if ($(window).width() > 500) {
+      $('.menu_hide').show();
+      $('.label_icon').show();
+      $('.imprimir').show();
+
+
+     
+      }else if ($(window).width() <= 500) {
+        $('.label_icon').hide();
         $('.imprimir').hide();
       }  
 

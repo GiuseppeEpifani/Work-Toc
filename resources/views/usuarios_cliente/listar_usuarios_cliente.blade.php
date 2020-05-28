@@ -51,13 +51,14 @@
                     <td>{{ $item->nombre}} {{$item->ape_paterno}} {{$item->ape_materno}}</td>
                     <td><a target="-blank" href="{{ url('/storage/antecedentes/'.$item->antecedentes)}}">Ver
                         Antecedentes</a></td>
-                    <td><a title="Habilitar Trabajador" class="btn btn-primary btn-sm btn_activar"
+                    <td class="achicar_botones"><a title="Habilitar Trabajador"
+                        class="btn btn-primary btn-sm btn_activar"
                         style="background: #28C2EB !important; color:#ffffff !important;"><i
-                          class="fas fa-check-circle"></i> Activar</a>
+                          class="fas fa-check-circle"></i> <label class="label_icon"> Activar </label></a>
 
                       <a title="Borrar Solicitud" class="btn btn-danger btn-sm btn_eliminar"
                         class="btn btn-danger btn-sm" style="color: #ffffff"><i class="fas fa-times-circle"></i>
-                        Eliminar</a>
+                        <label class="label_icon">Eliminar</label></a>
                     </td>
                   </tr>
                   @endforeach
@@ -88,7 +89,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Solicitud de <label id="parrafo_nombre_usuario"> </label>
+        <h5 class="modal-title" id="exampleModalLongTitle"><label id="parrafo_nombre_usuario"> </label>
         </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -174,7 +175,7 @@
 
           
             //form.attr('action').replace("USER_ID", objUsuario.id);           
-            $('#parrafo_nombre_usuario').text(nombre_completo);
+            $('#parrafo_nombre_usuario').text("Solicitud de "+nombre_completo);
             $('#modal_eliminar').modal('show');
 
         })  
