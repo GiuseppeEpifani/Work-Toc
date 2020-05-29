@@ -19,6 +19,7 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('css/estilo_menu.css') }}" rel="stylesheet">
   <link href="{{ asset('css/estilo_card.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/introLoader/introLoader.min.css') }}" rel="stylesheet">
   <link href=" https://cdn.datatables.net/responsive/2.2.4/css/responsive.bootstrap.min.css" rel="stylesheet">
 
 
@@ -99,9 +100,8 @@
 </body>
 
 
-<script src="https://code.jquery.com/jquery-3.5.1.js ">
-
-</script>
+<script src="https://code.jquery.com/jquery-3.5.1.js "></script>
+<script src="{{ asset('js/introLoader/jquery.introLoader.pack.min.js') }}"></script>
 <script>
   $(document).ready(function($){
    if ($(window).width() <= 900) {

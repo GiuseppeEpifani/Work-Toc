@@ -84,10 +84,13 @@
      font-weight: bold !important;
  }
 
-
-
-
  @media only screen and (max-width: 800px) {
+     #tabla_trabajos_length {
+         font-size: 12px !important;
+     }
+ }
+
+ @media only screen and (max-width: 620px) {
      #tabla_trabajos_length {
          color: #85bb65 !important;
          position: relative !important;

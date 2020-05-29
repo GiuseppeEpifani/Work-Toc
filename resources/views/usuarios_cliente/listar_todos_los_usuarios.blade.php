@@ -5,9 +5,10 @@
 <link href="{{ asset('css/estilo_dataTable_usuarios.css') }}" rel="stylesheet">
 
 @section('content')
+<div id="element" class="introLoading"></div>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             @if (session('mensaje_edit'))
             <div class="alert alert-warning" style="background: #85bb65 !important; color: #ffffff !important;"><button
                     type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -41,16 +42,28 @@
                                     <tr>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Correo</th>
+                                        <th scope="col">Numero</th>
+                                        <th scope="col">Antecedentes</th>
                                         <th scope="col">Acción</th>
                                     </tr>
                                 </thead>
                                 @isset($usuarios)
+
                                 <tbody>
                                     @foreach ($usuarios as $item)
+                                    <?php $antecedente= App\usuario_trabajador::find($item->id); ?>
                                     <!-- data-id sirve para obtener elementos especificos de una tabla -->
                                     <tr data-id="{{$item}}">
                                         <td>{{ $item->nombre}} {{$item->ape_paterno}} {{$item->ape_materno}}</td>
                                         <td> {{$item->correo}}</td>
+                                        <td> {{$item->numero}}</td>
+                                        @if(isset($antecedente))
+                                        <td> <a target="-blank"
+                                                href="{{ url('/storage/antecedentes/'.$antecedente->antecedentes)}}">
+                                                Ver Antecedentes</a></td>
+                                        @else
+                                        <td> No Trabaja</td>
+                                        @endif
                                         <td class="achicar_botones">
                                             @if($item->usuario_trabajador['id'] != null &&
                                             $item->usuario_trabajador['activada']=='si' && $item->bloqueado == 'no')
@@ -58,7 +71,7 @@
                                                 class="btn btn-primary btn-sm btn_desactivar"
                                                 style="background: #28C2EB !important; color:#ffffff !important;"><i
                                                     class="fas fa-ban"></i>
-                                                <label class="label_icon">Desactivar</label>
+                                                <span class="label_icon">Desactivar</span>
                                             </a>
                                             @endif
                                             @if($item->usuario_trabajador['id'] != null &&
@@ -67,19 +80,19 @@
                                                 class="btn btn-primary btn-sm btn_activar"
                                                 style="background: #28C2EB !important; color:#ffffff !important;"><i
                                                     class="fas fa-check-circle"></i>
-                                                <label class="label_icon"> Activar</label></a>
+                                                <span class="label_icon"> Activar</span></a>
                                             @endif
                                             @if($item->bloqueado == 'no')
                                             <a title="Bloquea la Cuenta Completa"
                                                 class="btn btn-danger btn-sm btn_bloquear" class="btn btn-danger btn-sm"
                                                 style="color: #ffffff"><i class="fas fa-shield-alt"></i>
-                                                <label class="label_icon">
+                                                <span class="label_icon">
                                                     Bloquear
-                                                </label </a> @else <a title="Bloquea la Cuenta Completa"
+                                                </span </a> @else <a title="Bloquea la Cuenta Completa"
                                                     class="btn btn-danger btn-sm btn_desbloquear"
                                                     class="btn btn-danger btn-sm" style="color: #ffffff"><i
                                                     class="fas fa-unlock-alt"></i>
-                                                <label class="label_icon">Desbloquear</label> </a>
+                                                <span class="label_icon">Desbloquear</span> </a>
                                             @endif
                                         </td>
                                     </tr>
@@ -129,6 +142,7 @@
 
 
 @section('script_dataTable')
+<script src="{{ asset('js/configuracioIntroLoader.js') }}"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.4/js/dataTables.responsive.min.js"></script>

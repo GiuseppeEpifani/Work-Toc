@@ -40,6 +40,7 @@ $(document).ready(function () {
         ],
 
         "language": {
+            searchPlaceholder: "Busqueda Filtrada",
             "info": "_TOTAL_ Registro(s) encontrado(s)",
             "search": '<i class="fas fa-search" style=" font-size:22px;"></i>',
             "paginate": {
@@ -47,14 +48,14 @@ $(document).ready(function () {
                 "previous": "Anterior",
             },
             "lengthMenu": '<select>' +
-                '<option value="10">Mostrar 10 Registros</option>' +
-                '<option value="30">Mostrar 30 Registros</option>' +
-                '<option value="50">Mostrar 50 Registros</option>' +
+                '<option value="10">Mostrar de 10 Registros</option>' +
+                '<option value="30">Mostrar de 30 Registros</option>' +
+                '<option value="50">Mostrar de 50 Registros</option>' +
                 '<option value="-1">Mostrar todos los Registros</option>' +
                 '</select>',
             "loadingRecords": "Cargando...",
             "processing": "Procesando...",
-            "emptyTable": "No hay Datos",
+            "emptyTable": "No hay registro de trabajos",
             "zeroRecords": "No hay coincidencias",
             "infoEmpty": "",
             "infoFiltered": ""
@@ -72,24 +73,25 @@ $(document).ready(function () {
     $('#tabla_usuarios').DataTable({
         responsive: true,
         columnDefs: [
-            { responsivePriority: 2, targets: -1 }
+            { responsivePriority: 4, targets: -1 }
         ],
         "language": {
-            "info": "_TOTAL_ Registro(s) encontrado(s)",
+            searchPlaceholder: "Busqueda Filtrada",
+            "info": "_TOTAL_ Usuario(s) encontrado(s)",
             "search": '<i class="fas fa-search" style=" font-size:22px;"></i>',
             "paginate": {
                 "next": "Siguiente",
                 "previous": "Anterior",
             },
             "lengthMenu": '<select>' +
-                '<option value="10">Mostrar 10 Registros</option>' +
-                '<option value="30">Mostrar 30 Registros</option>' +
-                '<option value="50">Mostrar 50 Registros</option>' +
+                '<option value="10">Filtrar de 10 Usuarios</option>' +
+                '<option value="30">Filtrar de 30 Usuarios</option>' +
+                '<option value="50">Filtrar de 50 Usuarios</option>' +
                 '<option value="-1">Mostrar todos los Registros</option>' +
                 '</select>',
             "loadingRecords": "Cargando...",
             "processing": "Procesando...",
-            "emptyTable": "No hay Datos",
+            "emptyTable": "No hay usuarios en la base de datos",
             "zeroRecords": '<center>No hay coincidencias</center>',
             "infoEmpty": "",
             "infoFiltered": ""
@@ -107,21 +109,22 @@ $(document).ready(function () {
             { responsivePriority: 3, targets: -1 }
         ],
         "language": {
-            "info": "_TOTAL_ Registro(s) encontrado(s)",
+            searchPlaceholder: 'Busqueda Filtrada',
+            "info": "_TOTAL_ Usuario(s) encontrado(s)",
             "search": '<i class="fas fa-search" style=" font-size:22px;"></i>',
             "paginate": {
                 "next": "Siguiente",
                 "previous": "Anterior",
             },
             "lengthMenu": '<select>' +
-                '<option value="10">Mostrar 10 Registros</option>' +
-                '<option value="30">Mostrar 30 Registros</option>' +
-                '<option value="50">Mostrar 50 Registros</option>' +
-                '<option value="-1">Mostrar todos los Registros</option>' +
+                '<option value="10">Filtrar de 10 Usuarios</option>' +
+                '<option value="30">Filtrar de 30 Usuarios</option>' +
+                '<option value="50">Filtrar de 50 Usuarios</option>' +
+                '<option value="-1">Mostrar todos los Usuarios</option>' +
                 '</select>',
             "loadingRecords": "Cargando...",
             "processing": "Procesando...",
-            "emptyTable": "No hay Datos",
+            "emptyTable": "No hay usuarios en la base de datos",
             "zeroRecords": '<center>No hay coincidencias</center>',
             "infoEmpty": "",
             "infoFiltered": ""

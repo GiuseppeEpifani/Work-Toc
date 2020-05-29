@@ -3,14 +3,16 @@
 <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 <link href="{{ asset('css/estilo_dataTable_usuarios_activar.css') }}" rel="stylesheet">
 @section('content')
-
+<div id="element" class="introLoading"></div>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
       @if (session('mensaje_edit'))
-      <div class="alert alert-warning" style="background: #85bb65 !important; color: #ffffff !important;"><button
-          type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+      <div class="alert alert-warning" style="background: #85bb65 !important; color: #ffffff !important;">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">
+            &times;
+          </span>
         </button>
         {{ session('mensaje_edit') }}
       </div>
@@ -44,7 +46,6 @@
                 </thead>
                 @isset($usuarios)
                 <tbody>
-                  @if(!$usuarios->isEmpty())
                   @foreach ($usuarios as $item)
                   <!-- data-id sirve para obtener elementos especificos de una tabla -->
                   <tr data-id="{{$item}}">
@@ -54,23 +55,15 @@
                     <td class="achicar_botones"><a title="Habilitar Trabajador"
                         class="btn btn-primary btn-sm btn_activar"
                         style="background: #28C2EB !important; color:#ffffff !important;"><i
-                          class="fas fa-check-circle"></i> <label class="label_icon"> Activar </label></a>
+                          class="fas fa-check-circle"></i> <span class="label_icon"> Activar </span></a>
 
                       <a title="Borrar Solicitud" class="btn btn-danger btn-sm btn_eliminar"
                         class="btn btn-danger btn-sm" style="color: #ffffff"><i class="fas fa-times-circle"></i>
-                        <label class="label_icon">Eliminar</label></a>
+                        <span class="label_icon">Eliminar</span></a>
                     </td>
                   </tr>
                   @endforeach
-                  @else
-                  <th colspan="4">
-                    <center>
-                      <h6>No hay Usuario por activar</h6>
-                    </center>
-                  </th>
 
-
-                  @endif
                 </tbody>
                 @endisset
               </table>
@@ -146,6 +139,7 @@
 
 @endsection
 @section('script_dataTable')
+<script src="{{ asset('js/configuracioIntroLoader.js') }}"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.4/js/dataTables.responsive.min.js"></script>

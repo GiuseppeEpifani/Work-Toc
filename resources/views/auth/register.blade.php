@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div id="element" class="introLoading"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -101,4 +102,7 @@
 
 
 
+@endsection
+@section('script')
+<script src="{{ asset('js/configuracioIntroLoader.js') }}"></script>
 @endsection

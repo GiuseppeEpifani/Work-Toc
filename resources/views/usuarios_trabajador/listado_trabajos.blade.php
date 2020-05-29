@@ -7,6 +7,7 @@
 @endsection
 
 @section('content')
+<div id="element" class="introLoading"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -73,6 +74,7 @@
 @endsection
 
 @section('script_dataTable')
+<script src="{{ asset('js/configuracioIntroLoader.js') }}"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.4/js/dataTables.responsive.min.js"></script>
