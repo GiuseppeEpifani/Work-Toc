@@ -51,7 +51,7 @@
 
                                 <tbody>
                                     @foreach ($usuarios as $item)
-                                    <?php $antecedente= App\usuario_trabajador::find($item->id); ?>
+                                    <?php $antecedente= App\usuario_trabajador::find($item->id) ?>
                                     <!-- data-id sirve para obtener elementos especificos de una tabla -->
                                     <tr data-id="{{$item}}">
                                         <td>{{ $item->nombre}} {{$item->ape_paterno}} {{$item->ape_materno}}</td>
@@ -85,7 +85,7 @@
                                             @if($item->bloqueado == 'no')
                                             <a title="Bloquea la Cuenta Completa"
                                                 class="btn btn-danger btn-sm btn_bloquear" class="btn btn-danger btn-sm"
-                                                style="color: #ffffff"><i class="fas fa-shield-alt"></i>
+                                                style="color: #ffffff"><i class="fas fa-lock"></i>
                                                 <span class="label_icon">
                                                     Bloquear
                                                 </span </a> @else <a title="Bloquea la Cuenta Completa"
