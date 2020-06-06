@@ -24,6 +24,7 @@
 
 
   @yield('css_dataTable')
+  @yield('css')
 </head>
 
 <body>
@@ -32,23 +33,23 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <div class="container">
 
-        <ul class="navbar-nav menu_hide">
-          <li class="nav-item active">
+        <ul class="navbar-nav ">
+          <li class="nav-item active a_menu d-none d-md-block">
             <a class="nav-link " href="{{url('/usuario')}}">Activar Usuarios <span class="sr-only"></span></a>
           </li>
 
-          <li class="nav-item menu_hide">
+          <li class="nav-item  a_menu d-none d-md-block">
             <a class="nav-link" href="{{route('todos_los_usuarios')}}">Usuarios <span class="sr-only"></span></a>
           </li>
 
-          <li class="nav-item ">
+          <li class="nav-item a_menu d-none d-md-block">
             <a class="nav-link" href="{{route('usuarios_trabajador.listado_trabajos')}}">Registro de Trabajos <span
                 class="sr-only"></span></a>
           </li>
 
 
           @if (Auth::user()->email=="giuseppe@gmail.com")
-          <li class="nav-item">
+          <li class="nav-item a_menu d-none d-md-block">
             <a class="nav-link" href="{{ route('register') }}">{{ __('Nuevo Admin') }}</a>
           </li>
           @endif
@@ -68,15 +69,16 @@
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"
               style="background: #85bb70 !important;">
-              <a class="dropdown-item a_reponsivo" href="{{url('/usuario')}}">Activar
+              <a class="dropdown-item d-md-none a_reponsivo" href="{{url('/usuario')}}">Activar
                 Usuarios
                 <span class="sr-only"></span></a>
-              <a class="dropdown-item a_reponsivo" href="{{route('todos_los_usuarios')}}">Usuarios <span
+              <a class="dropdown-item d-md-none a_reponsivo" href="{{route('todos_los_usuarios')}}">Usuarios <span
                   class="sr-only"></span></a>
-              <a class="dropdown-item a_reponsivo" href="{{route('usuarios_trabajador.listado_trabajos')}}">Registro de
+              <a class="dropdown-item d-md-none a_reponsivo"
+                href="{{route('usuarios_trabajador.listado_trabajos')}}">Registro de
                 Trabajos <span class="sr-only"></span></a>
               @if (Auth::user()->email=="giuseppe@gmail.com")
-              <a class="dropdown-item a_reponsivo" href="{{ route('register') }}">{{ __('Nuevo Admin') }}</a>
+              <a class="dropdown-item d-md-none a_reponsivo" href="{{ route('register') }}">{{ __('Nuevo Admin') }}</a>
               @endif
               <a class="dropdown-item" style="color: #ffffff !important; width: 100px !important;"
                 href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -97,65 +99,44 @@
       @yield('content')
     </main>
   </div>
-</body>
 
 
-<script src="https://code.jquery.com/jquery-3.5.1.js "></script>
-<script src="{{ asset('js/introLoader/jquery.introLoader.pack.min.js') }}"></script>
-<script>
-  $(document).ready(function($){
-   if ($(window).width() <= 900) {
-    $('.menu_hide').hide();
+  <script src="https://code.jquery.com/jquery-3.5.1.js "></script>
+  <script src="{{ asset('js/introLoader/jquery.introLoader.pack.min.js') }}"></script>
+  <script>
+    $(document).ready(function($){
+   if ($(window).width() <= 770) {
     $('.label_icon').hide();
-    $('.a_reponsivo').show(); 
 
    
      } else if ($(window).width() > 900) {
-      $('.a_reponsivo').hide();
-      $('.menu_hide').show();
       $('.label_icon').show();
-      $('.imprimir').show();
 
     }else if ($(window).width() <= 500) {
       $('.label_icon').hide();
-      $('.imprimir').hide();
     }
 
   });
 
   $(window).resize(function(){
-      if ($(window).width() <= 900) {
-        $('.menu_hide').hide();
+      if ($(window).width() <= 770) {
         $('.label_icon').hide();
-        $('.a_reponsivo').show(); 
-
-  
     
        } else if ($(window).width() > 900) {
-        $('.a_reponsivo').hide();
-      $('.menu_hide').show();
       $('.label_icon').show();
-      $('.imprimir').show();
-
-
      
-      }else if ($(window).width() <= 500) {
-        $('.label_icon').hide();
-        $('.imprimir').hide();
-      }  
+      } 
 
     });
-</script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-</script>
-<script src="https://kit.fontawesome.com/cc66cadfbc.js" crossorigin="anonymous"></script>
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+  </script>
+  <script src="https://kit.fontawesome.com/cc66cadfbc.js" crossorigin="anonymous"></script>
 
 
-@yield('script_dataTable')
-@yield('script')
-
-
-
+  @yield('script_dataTable')
+  @yield('script')
+</body>
 
 </html>

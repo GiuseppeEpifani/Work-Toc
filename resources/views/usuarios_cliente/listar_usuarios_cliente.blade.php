@@ -1,7 +1,10 @@
 @extends('layouts.app')
+@section('css')
 <link href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
 <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 <link href="{{ asset('css/estilo_dataTable_usuarios_activar.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 <div id="element" class="introLoading"></div>
 <div class="container">
@@ -34,41 +37,36 @@
 
         </div>
         <div class="container" style="margin-top: 10px !important; margin-bottom: 10px !important;">
-          <div class="row">
-            <div class="col-lg-12">
-              <table class="table display responsive nowrap" cellspacing="0" width="100%" id="tabla_usuarios_activar">
-                <thead>
-                  <tr>
-                    <th width="40%">Nombre</th>
-                    <th width="25%">Antecedentes</th>
-                    <th width="35%">Acción</th>
-                  </tr>
-                </thead>
-                @isset($usuarios)
-                <tbody>
-                  @foreach ($usuarios as $item)
-                  <!-- data-id sirve para obtener elementos especificos de una tabla -->
-                  <tr data-id="{{$item}}">
-                    <td>{{ $item->nombre}} {{$item->ape_paterno}} {{$item->ape_materno}}</td>
-                    <td><a target="-blank" href="{{ url('/storage/antecedentes/'.$item->antecedentes)}}">Ver
-                        Antecedentes</a></td>
-                    <td class="achicar_botones"><a title="Habilitar Trabajador"
-                        class="btn btn-primary btn-sm btn_activar"
-                        style="background: #28C2EB !important; color:#ffffff !important;"><i
-                          class="fas fa-check-circle"></i> <span class="label_icon"> Activar </span></a>
+          <table class="table display responsive nowrap" cellspacing="0" width="100%" id="tabla_usuarios_activar">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Antecedentes</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            @isset($usuarios)
+            <tbody>
+              @foreach ($usuarios as $item)
+              <!-- data-id sirve para obtener elementos especificos de una tabla -->
+              <tr data-id="{{$item}}">
+                <td>{{ $item->nombre}} {{$item->ape_paterno}} {{$item->ape_materno}}</td>
+                <td><a target="-blank" href="{{ url('/storage/antecedentes/'.$item->antecedentes)}}">Ver
+                    Antecedentes</a></td>
+                <td class="achicar_botones"><a title="Habilitar Trabajador"
+                    class="btn btn-primary btn-sm btn_activar a_border"
+                    style="background: #28C2EB !important; color:#ffffff !important;"><i
+                      class="fas fa-check-circle"></i> <span class="label_icon"> Activar </span></a>
 
-                      <a title="Borrar Solicitud" class="btn btn-danger btn-sm btn_eliminar"
-                        class="btn btn-danger btn-sm" style="color: #ffffff"><i class="fas fa-times-circle"></i>
-                        <span class="label_icon">Eliminar</span></a>
-                    </td>
-                  </tr>
-                  @endforeach
-
-                </tbody>
-                @endisset
-              </table>
-            </div>
-          </div>
+                  <a title="Borrar Solicitud" class="btn btn-danger btn-sm btn_eliminar a_border"
+                    class="btn btn-danger btn-sm" style="color: #ffffff"><i class="fas fa-times-circle"></i>
+                    <span class="label_icon">Eliminar</span></a>
+                </td>
+              </tr>
+              @endforeach
+            </tbody>
+            @endisset
+          </table>
         </div>
       </div>
     </div>
@@ -131,13 +129,8 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
 @endsection
+
 @section('script_dataTable')
 <script src="{{ asset('js/configuracioIntroLoader.js') }}"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>

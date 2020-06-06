@@ -38,3 +38,6 @@ Route::delete('/delete/{id}', 'TrabajosController@delete')->name('usuarios_traba
 
 
 Route::get('pdf', 'TrabajosController@mostrar_pdf')->name('exportar_pdf')->middleware(['auth', 'password.confirm']);;
+
+
+Route::get('/solicitar_cuenta/{id}', 'TrabajosController@solicitar_cuenta_trabajo');

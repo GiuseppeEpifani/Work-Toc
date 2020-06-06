@@ -18,3 +18,6 @@ $("#element").introLoader({
         color: '#85bb65', // #rgb or #rrggbb or array of colors
     }
 });
+
+
+

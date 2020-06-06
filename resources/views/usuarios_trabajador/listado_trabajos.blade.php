@@ -10,7 +10,7 @@
 <div id="element" class="introLoading"></div>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-lg-12">
             <div class="card sombra">
 
                 <div class="card-header d-flex justify-content-between align-items-center text-center card_header">
@@ -29,40 +29,36 @@
 
 
                 <div class="container" style="margin-top: 10px !important; margin-bottom: 10px !important;">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <table class="table  display responsive nowrap" cellspacing="0" width="100%"
-                                id="tabla_trabajos">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Trabajador Involucrado</th>
-                                        <th scope="col">Cliente Involucrado</th>
-                                        <th scope="col">Monto</th>
-                                        <th scope="col">Categoria</th>
-                                        <th scope="col">Dirección</th>
-                                        <th scope="col">Correo Trabajador</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($trabajos as $item)
-                                    <?php $cliente = App\usuario::find($item->id_cliente);  ?>
-                                    <tr>
-                                        <td>{{ $item->id }}</td>
-                                        <td>{{ $item->nombre }} {{ $item->ape_paterno }} {{ $item->ape_materno }}</td>
-                                        <td> {{  $cliente['nombre']}} {{ $cliente['ape_paterno'] }}
-                                            {{ $cliente['ape_materno'] }}
-                                        </td>
-                                        <td>{{ $item->precio }}</td>
-                                        <td>{{ $item->categoria }}</td>
-                                        <td>{{ $item->direccion }}</td>
-                                        <td>{{ $item->correo }}</td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+
+                    <table class="table  display responsive nowrap" cellspacing="0" width="100%" id="tabla_trabajos">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Trabajador Involucrado</th>
+                                <th scope="col">Cliente Involucrado</th>
+                                <th scope="col">Monto</th>
+                                <th scope="col">Categoria</th>
+                                <th scope="col">Dirección</th>
+                                <th scope="col">Correo Trabajador</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($trabajos as $item)
+                            <?php $cliente = App\usuario::find($item->id_cliente);  ?>
+                            <tr>
+                                <td>{{ $item->id }}</td>
+                                <td>{{ $item->nombre }} {{ $item->ape_paterno }} {{ $item->ape_materno }}</td>
+                                <td> {{  $cliente['nombre']}} {{ $cliente['ape_paterno'] }}
+                                    {{ $cliente['ape_materno'] }}
+                                </td>
+                                <td>{{ $item->precio }}</td>
+                                <td>{{ $item->categoria }}</td>
+                                <td>{{ $item->direccion }}</td>
+                                <td>{{ $item->correo }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
 
                 </div>
             </div>
@@ -86,5 +82,4 @@
 <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
 <script src="{{ asset('js/configuracion_dataTable.js') }}"></script>
-
 @endsection

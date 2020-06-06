@@ -38,9 +38,14 @@
 }
 
 
+.a_menu:hover {
+    transform: scale(1.1);
+}
 
 
-
+.a_border {
+    border-radius: 100px !important;
+}
 
 @media only screen and (max-width: 800px) {
     .card_header {

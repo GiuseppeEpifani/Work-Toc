@@ -1,14 +1,14 @@
 @extends('layouts.app')
-
+@section('css')
 <link href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
 <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 <link href="{{ asset('css/estilo_dataTable_usuarios.css') }}" rel="stylesheet">
-
+@endsection
 @section('content')
 <div id="element" class="introLoading"></div>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-lg-12">
             @if (session('mensaje_edit'))
             <div class="alert alert-warning" style="background: #85bb65 !important; color: #ffffff !important;"><button
                     type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -34,76 +34,71 @@
 
                 </div>
                 <div class="container" style="margin-top: 10px !important; margin-bottom: 10px !important;">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <table class="table display responsive nowrap" cellspacing="0" width="100%"
-                                id="tabla_usuarios">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Correo</th>
-                                        <th scope="col">Numero</th>
-                                        <th scope="col">Antecedentes</th>
-                                        <th scope="col">Acción</th>
-                                    </tr>
-                                </thead>
-                                @isset($usuarios)
 
-                                <tbody>
-                                    @foreach ($usuarios as $item)
-                                    <?php $antecedente= App\usuario_trabajador::find($item->id) ?>
-                                    <!-- data-id sirve para obtener elementos especificos de una tabla -->
-                                    <tr data-id="{{$item}}">
-                                        <td>{{ $item->nombre}} {{$item->ape_paterno}} {{$item->ape_materno}}</td>
-                                        <td> {{$item->correo}}</td>
-                                        <td> {{$item->numero}}</td>
-                                        @if(isset($antecedente))
-                                        <td> <a target="-blank"
-                                                href="{{ url('/storage/antecedentes/'.$antecedente->antecedentes)}}">
-                                                Ver Antecedentes</a></td>
-                                        @else
-                                        <td> No Trabaja</td>
-                                        @endif
-                                        <td class="achicar_botones">
-                                            @if($item->usuario_trabajador['id'] != null &&
-                                            $item->usuario_trabajador['activada']=='si' && $item->bloqueado == 'no')
-                                            <a title="Desactiva la Cuenta Trabajador"
-                                                class="btn btn-primary btn-sm btn_desactivar"
-                                                style="background: #28C2EB !important; color:#ffffff !important;"><i
-                                                    class="fas fa-ban"></i>
-                                                <span class="label_icon">Desactivar</span>
-                                            </a>
-                                            @endif
-                                            @if($item->usuario_trabajador['id'] != null &&
-                                            $item->usuario_trabajador['activada']=='no' && $item->bloqueado == 'no')
-                                            <a title=" Vulve Activar la Cuenta Trabajador"
-                                                class="btn btn-primary btn-sm btn_activar"
-                                                style="background: #28C2EB !important; color:#ffffff !important;"><i
-                                                    class="fas fa-check-circle"></i>
-                                                <span class="label_icon"> Activar</span></a>
-                                            @endif
-                                            @if($item->bloqueado == 'no')
-                                            <a title="Bloquea la Cuenta Completa"
-                                                class="btn btn-danger btn-sm btn_bloquear" class="btn btn-danger btn-sm"
-                                                style="color: #ffffff"><i class="fas fa-lock"></i>
-                                                <span class="label_icon">
-                                                    Bloquear
-                                                </span </a> @else <a title="Bloquea la Cuenta Completa"
-                                                    class="btn btn-danger btn-sm btn_desbloquear"
-                                                    class="btn btn-danger btn-sm" style="color: #ffffff"><i
-                                                    class="fas fa-unlock-alt"></i>
-                                                <span class="label_icon">Desbloquear</span> </a>
-                                            @endif
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                                @endisset
-                            </table>
+                    <table class="table display responsive nowrap" cellspacing="0" width="100%" id="tabla_usuarios">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Correo</th>
+                                <th scope="col">Numero</th>
+                                <th scope="col">Antecedentes</th>
+                                <th scope="col">Acción</th>
+                            </tr>
+                        </thead>
+                        @isset($usuarios)
 
-                        </div>
+                        <tbody>
+                            @foreach ($usuarios as $item)
+                            <?php $antecedente= App\usuario_trabajador::find($item->id) ?>
+                            <!-- data-id sirve para obtener elementos especificos de una tabla -->
+                            <tr data-id="{{$item}}">
+                                <td>{{ $item->nombre}} {{$item->ape_paterno}} {{$item->ape_materno}}</td>
+                                <td> {{$item->correo}}</td>
+                                <td> {{$item->numero}}</td>
+                                @if(isset($antecedente) && $antecedente->activada=='si')
+                                <td> <a target="-blank"
+                                        href="{{ url('/storage/antecedentes/'.$antecedente->antecedentes)}}">
+                                        Ver Antecedentes</a></td>
+                                @else
+                                <td> No Trabaja</td>
+                                @endif
+                                <td>
+                                    @if($item->usuario_trabajador['id'] != null &&
+                                    $item->usuario_trabajador['activada']=='si' && $item->bloqueado == 'no')
+                                    <a title="Desactiva la Cuenta Trabajador"
+                                        class="btn btn-primary btn-sm btn_desactivar a_border"
+                                        style="background: #28C2EB !important; color:#ffffff !important;"><i
+                                            class="fas fa-ban"></i>
+                                        <span class="label_icon">Desactivar</span>
+                                    </a>
+                                    @endif
+                                    @if($item->usuario_trabajador['id'] != null &&
+                                    $item->usuario_trabajador['activada']=='no' && $item->bloqueado == 'no')
+                                    <a title=" Vulve Activar la Cuenta Trabajador"
+                                        class="btn btn-primary btn-sm btn_activar a_border"
+                                        style="background: #28C2EB !important; color:#ffffff !important;"><i
+                                            class="fas fa-check-circle"></i>
+                                        <span class="label_icon"> Activar</span></a>
+                                    @endif
+                                    @if($item->bloqueado == 'no')
+                                    <a title="Bloquea la Cuenta Completa"
+                                        class="btn btn-danger btn-sm btn_bloquear a_border" style="color: #ffffff"><i
+                                            class="fas fa-lock"></i>
+                                        <span class="label_icon">
+                                            Bloquear
+                                        </span </a> @else <a title="Bloquea la Cuenta Completa"
+                                            class="btn btn-danger btn-sm btn_desbloquear a_border"
+                                            style="color: #ffffff"><i class="fas fa-unlock-alt"></i>
+                                        <span class="label_icon">Desbloquear</span> </a>
+                                    @endif
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                        @endisset
+                    </table>
 
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -136,9 +131,7 @@
         </div>
     </div>
 </div>
-
-
-
+@endsection
 
 
 @section('script_dataTable')
@@ -157,7 +150,6 @@
 @endsection
 
 
-@endsection
 @section('script')
 <script>
     $(document).ready( function () {

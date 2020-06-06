@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\usuario_trabajador;
+use App\usuario;
 class TrabajosController extends Controller
 {
     public function __construct()
@@ -68,6 +69,13 @@ class TrabajosController extends Controller
     }
 
  
+
+    public function solicitar_cuenta_trabajo($id)
+    {           
+        $usuario = usuario::find($id);
+
+        return view('solicitar_cuenta_trabajo.form_cuenta_trabajo', compact('usuario'));
+    }
 
 
 }
