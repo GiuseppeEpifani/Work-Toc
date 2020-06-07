@@ -74,10 +74,14 @@ class TrabajosController extends Controller
  
 
     public function solicitar_cuenta_trabajo($id)
-    {           
+    {          
+        $trabajador = usuario_trabajador::where("id_usuario","=",$id)->first();
+        if(isset($trabajador)){
+            return view('solicitar_cuenta_trabajo.form_cuenta_trabajo', compact('trabajador'));
+        }else{
         $usuario = usuario::find($id);
-
         return view('solicitar_cuenta_trabajo.form_cuenta_trabajo', compact('usuario'));
+        }
     }
 
 
@@ -91,7 +95,8 @@ class TrabajosController extends Controller
 
         $nuevoUsuario->save();
 
-        return back()->with('mensaje', 'Solicitud Enviada');
+        return response()->json(['mensaje'=>'Solicitud Enviada']);
+        //return back()->with('mensaje', 'Solicitud Enviada');
     }
 
 
