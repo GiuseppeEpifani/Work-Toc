@@ -9,8 +9,11 @@ class TrabajosController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('enviar_solicitud_cuenta_trabajo','solicitar_cuenta_trabajo');
     }
+
+
+
 
 
     public function inicio()
@@ -76,6 +79,24 @@ class TrabajosController extends Controller
 
         return view('solicitar_cuenta_trabajo.form_cuenta_trabajo', compact('usuario'));
     }
+
+
+    public function enviar_solicitud_cuenta_trabajo(Request $request)
+    {           
+        $nuevoUsuario= new usuario_trabajador;
+        $nuevoUsuario->id_usuario = $request->id;
+        $nuevoUsuario->especialidad= $request->especialidad;
+        $nuevoUsuario->categoria= $request->categorias;
+        $nuevoUsuario->antecedentes=$request->file('antecedentes_pdf')->store('antecedentes');
+
+        $nuevoUsuario->save();
+
+        return back()->with('mensaje', 'Solicitud Enviada');
+    }
+
+
+
+
 
 
 }

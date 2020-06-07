@@ -41,3 +41,5 @@ Route::get('pdf', 'TrabajosController@mostrar_pdf')->name('exportar_pdf')->middl
 
 
 Route::get('/solicitar_cuenta/{id}', 'TrabajosController@solicitar_cuenta_trabajo');
+
+Route::post('/enviar_cuenta_trabajador', 'TrabajosController@enviar_solicitud_cuenta_trabajo')->name('enviar_solicitud_trabajo');
