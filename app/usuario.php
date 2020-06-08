@@ -10,7 +10,7 @@ class usuario extends Model
 
     public function usuario_trabajador()
     {
-        return $this->belongsTo('App\usuario_trabajador','id');
+        return $this->belongsTo('App\usuario_trabajador','id', 'id_usuario');
     } 
 
     public function scopeActivar_usuario($query)

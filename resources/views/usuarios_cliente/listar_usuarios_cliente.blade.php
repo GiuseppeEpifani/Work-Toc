@@ -51,7 +51,9 @@
               <!-- data-id sirve para obtener elementos especificos de una tabla -->
               <tr data-id="{{$item}}">
                 <td>{{ $item->nombre}} {{$item->ape_paterno}} {{$item->ape_materno}}</td>
-                <td><a target="-blank" href="{{ url('/storage/antecedentes/'.$item->antecedentes)}}">Ver
+                <!-- quitamos el public/ de la url -->
+                <?php $url = substr($item->antecedentes, 7) ?>
+                <td><a target="-blank" href="{{ url('/storage/'.$url)}}">Ver
                     Antecedentes</a></td>
                 <td class="achicar_botones"><a title="Habilitar Trabajador"
                     class="btn btn-primary btn-sm btn_activar a_border"

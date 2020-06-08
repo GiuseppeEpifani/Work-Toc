@@ -49,15 +49,16 @@
 
                         <tbody>
                             @foreach ($usuarios as $item)
-                            <?php $antecedente= App\usuario_trabajador::find($item->id) ?>
+                            <?php $trabajador =$item->usuario_trabajador ?>
                             <!-- data-id sirve para obtener elementos especificos de una tabla -->
                             <tr data-id="{{$item}}">
                                 <td>{{ $item->nombre}} {{$item->ape_paterno}} {{$item->ape_materno}}</td>
                                 <td> {{$item->correo}}</td>
                                 <td> {{$item->numero}}</td>
-                                @if(isset($antecedente) && $antecedente->activada=='si')
-                                <td> <a target="-blank"
-                                        href="{{ url('/storage/antecedentes/'.$antecedente->antecedentes)}}">
+                                @if(isset($trabajador) && $trabajador['activada']=='si')
+                                <!-- quitamos el public/ de la url -->
+                                <?php $url = substr($trabajador['antecedentes'], 7) ?>
+                                <td> <a target="-blank" href="{{ url('/storage/'.$url)}}">
                                         Ver Antecedentes</a></td>
                                 @else
                                 <td> No Trabaja</td>

@@ -77,12 +77,51 @@
                 transform: rotate(360deg);
             }
         }
+
+
+
+        .modal {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+        }
+
+        .modal-dialog {
+            position: fixed;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border: 2px solid #3c7dcf;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .modal-body {
+            position: absolute;
+            top: 50px;
+            bottom: 60px;
+            width: 100%;
+            font-weight: 300;
+            overflow: auto;
+        }
     </style>
     <title>Solicitar Cuenta Trabajador</title>
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="container" style="margin-top: 120px !important">
 
         @if(isset($trabajador->id))
         <style>
@@ -154,11 +193,14 @@
         <center>
             <div class="modal fade bd-example-modal-sm" id="modal_cargando" tabindex="-1" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document" style="width: 150px !important;">
+                <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
-                        <center>
-                            <div class="loader"></div>
-                        </center>
+                        <div class="modal-body mt-5">
+                            <center>
+                                <div class="loader"></div>
+                            </center>
+                        </div>
+
                     </div>
                 </div>
             </div>

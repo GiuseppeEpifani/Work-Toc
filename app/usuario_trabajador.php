@@ -11,8 +11,8 @@ class usuario_trabajador extends Model
         return $this->hasMany('App\solicitud_trabajo');
     }
 
-    public function usuario_trabajador()
+    public function usuario_cliente()
     {
-        return $this->belongsTo(usuario::class);
+        return $this->belongsTo('App\usuario');
     }
 }

@@ -91,8 +91,7 @@ class TrabajosController extends Controller
         $nuevoUsuario->id_usuario = $request->id;
         $nuevoUsuario->especialidad= $request->especialidad;
         $nuevoUsuario->categoria= $request->categorias;
-        $nuevoUsuario->antecedentes=$request->file('antecedentes_pdf')->store('antecedentes');
-
+        $nuevoUsuario->antecedentes=$request->file('antecedentes_pdf')->store('public/antecedentes');
         $nuevoUsuario->save();
 
         return response()->json(['mensaje'=>'Solicitud Enviada']);
